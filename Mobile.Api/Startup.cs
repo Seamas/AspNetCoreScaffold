@@ -13,6 +13,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
+using Swashbuckle.AspNetCore.Swagger;
 
 namespace Mobile.Api
 {
@@ -48,6 +49,9 @@ namespace Mobile.Api
                         IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(jwt.Key))
                     };
                 });
+
+            // 添加Swagger
+            services.AddSwaggerGen(c => c.SwaggerDoc("v1", new Info { Title="MYAPI", Version="v1" }));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -65,6 +69,10 @@ namespace Mobile.Api
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
+
+            // 添加Swagger
+            app.UseSwagger();
+            app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json","MYAPI")) ;
 
             app.UseHttpsRedirection();
             app.UseMvc();
