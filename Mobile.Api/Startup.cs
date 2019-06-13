@@ -70,6 +70,9 @@ namespace Mobile.Api
                         HeaderNames = { "api-version", "x-api-version" }
                     });
             });
+
+            // 添加数据保护
+            services.AddDataProtection();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
