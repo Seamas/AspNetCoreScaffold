@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Versioning;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
@@ -52,6 +53,23 @@ namespace Mobile.Api
 
             // 添加Swagger
             services.AddSwaggerGen(c => c.SwaggerDoc("v1", new Info { Title="MYAPI", Version="v1" }));
+
+            // 添加ApiVersion
+            services.AddApiVersioning(v => 
+            {
+                v.ReportApiVersions = true;
+                v.AssumeDefaultVersionWhenUnspecified = true;
+                v.DefaultApiVersion = new ApiVersion(2, 0);
+
+                // 如果不设置，默认是 QueryStringApiVersionReader("api-version")
+                // 当设置多个apiVersionReader时，可以传入多个verion的值，但所有version值应相同，否则会报错
+                v.ApiVersionReader = ApiVersionReader.Combine(
+                    new QueryStringApiVersionReader("version"), 
+                    new HeaderApiVersionReader
+                    {
+                        HeaderNames = { "api-version", "x-api-version" }
+                    });
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
