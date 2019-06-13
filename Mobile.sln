@@ -1,0 +1,16 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mobile.Api", "Mobile.Api\Mobile.Api.csproj", "{F843263D-C3D1-4470-868F-AB8216FFCD58}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F843263D-C3D1-4470-868F-AB8216FFCD58}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F843263D-C3D1-4470-868F-AB8216FFCD58}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F843263D-C3D1-4470-868F-AB8216FFCD58}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F843263D-C3D1-4470-868F-AB8216FFCD58}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,10 @@
+.DS_Store
+## build folder
+bin
+obj
+## idea folder
+.idea
+
+## user 
+*.user
+
