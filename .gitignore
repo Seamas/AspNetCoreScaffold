@@ -5,6 +5,9 @@ obj
 ## idea folder
 .idea
 
+## vs folder
+.vs
+
 ## user 
 *.user
 
